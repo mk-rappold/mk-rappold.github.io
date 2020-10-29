@@ -12,7 +12,7 @@
 		@include vendor('align-items', 'center');
 		@include vendor('display', 'flex');
 		@include vendor('justify-content', 'center');
-		background-image: url('images/overlay.png'), url('images/pattern-size1.svg');
+		background-image: url('images/overlay.png'), url('images/header/bg-xlarge.jpg');
 		background-position: top left, center center;
 		background-attachment: fixed, fixed;
 		background-size: auto, cover;
@@ -20,12 +20,14 @@
 		min-height: 35em;
 
 		h1 {
-			font-size: 3.25em;
+			font-size: 3em;
 			font-weight: _font(weight-bold);
 			margin-bottom: _size(element-margin) * 0.25;
+			padding-left: 10%;
 		}
 
 		p {
+			text-align: right;
 			font-size: 1.5em;
 			line-height: 1.35em;
 
@@ -64,13 +66,41 @@
 
 		// Large.
 			@include breakpoint('<=large') {
-				background-image: url('images/overlay.png'), url('images/pattern-size2.svg');
+				background-image: url('images/header/bg-large.jpg');
+				background-position: top left, center center;
+				background-attachment: fixed, fixed;
+				background-size: auto, cover;
+			
+				height: 50vh;
+				max-height: 35em;
+
+				h1 {
+					padding-left: 37%;
+					text-align: center;
+				}
+
+				p {
+					padding-left: 37%;
+					text-align: center;
+				}
 			}
 
 		// Medium.
 			@include breakpoint('<=medium') {
-				height: auto;
-				min-height: 0;
+				height: 50vh;
+				min-height: 20em;
+
+				h1 {
+					font-size: 2em;
+					padding-left: 37%;
+					text-align: center;
+				}
+
+				p {
+					font-size: 1em;
+					padding-left: 37%;
+					text-align: center;
+				}
 
 				.content {
 					margin: (_size(element-margin) * -1) (_size(element-margin) * 2) 0 0;
@@ -101,20 +131,38 @@
 
 		// Small.
 			@include breakpoint('<=small') {
-				background-image: url('images/overlay.png'), url('images/pattern-size3.svg');
+				background-image: url('images/header/bg-small.jpg');
+				background-position: top center, center center;
+				background-attachment: fixed, fixed;
+				background-size: auto, cover;
+			
+				height: 35vh;
+				max-height: 35em;
 
 				h1 {
 					font-size: 2em;
+					padding-left: 30%;
 				}
 
 				p {
 					font-size: 1em;
 					line-height: inherit;
+					padding-left: 30%;
 				}
 
 				// Landscape.
 					@include orientation(landscape) {
 						@include padding(2em, 2em);
+
+						h1 {
+							padding-left: 37%;
+							text-align: center;
+						}
+		
+						p {
+							padding-left: 37%;
+							text-align: center;
+						}
 
 						.content {
 							margin: 0 _size(element-margin) _size(element-margin) 0;
@@ -146,6 +194,15 @@
 		// XSmall.
 			@include breakpoint('<=xsmall') {
 
+				h1 {
+					font-size: 1.5em;
+					padding-left: 25%;
+				}
+
+				p {
+					padding-left: 25%;
+				}
+
 				// Landscape.
 					@include orientation(landscape) {
 						@include padding(2em, 1.5em);
@@ -164,6 +221,18 @@
 						@include padding(2em, 1em);
 					}
 
+			}
+
+			@include breakpoint('<=xxsmall') {
+				
+				h1 {
+					font-size: 1.3em;
+					@include padding(0em, 1.5em);
+				}
+
+				p {
+					@include padding(0, 1.5em);
+				}
 			}
 
 		// Mobile.

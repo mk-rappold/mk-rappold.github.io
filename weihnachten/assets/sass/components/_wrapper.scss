@@ -16,6 +16,15 @@
 			margin-right: auto;
 			width: 50em;
 
+			@include orientation(landscape) {
+				header {
+					p {
+						margin-right: 1em;
+						margin-bottom: 0;
+					}
+				}
+			}
+
 			&.alt {
 				> * {
 					border-top: solid (_size(border-width) * 2) lighten(_palette(border), 3);
