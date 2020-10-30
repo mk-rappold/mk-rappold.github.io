@@ -165,6 +165,25 @@
 			<script src="weihnachten/assets/js/breakpoints.min.js"></script>
 			<script src="weihnachten/assets/js/util.js"></script>
 			<script src="weihnachten/assets/js/main.js"></script>
+			<script type="text/javascript">
+			
+			let getReq = new XMLHttpRequest();
+		  let req = new XMLHttpRequest();
+			let count = 0;
+			let k = '$2b$10$JA1CKZocOJDimV4h/89TIOghMRLYICn3KHqBLzt.lXVPbndtlwGy6';
+			getReq.onreadystatechange = () => {
+			  if (getReq.readyState == XMLHttpRequest.DONE) {
+			    count = JSON.parse(getReq.responseText).count;
+					req.open("PUT", "https://api.jsonbin.io/b/5f9b53b1857f4b5f9adfdf83", true);
+					req.setRequestHeader("Content-Type", "application/json");
+					req.setRequestHeader("secret-key", k)
+					req.send('{"count": ' + (count + 1) + '}');
+			  }
+			};
 
+			getReq.open("GET", "https://api.jsonbin.io/b/5f9b53b1857f4b5f9adfdf83/latest", true);
+			getReq.setRequestHeader("secret-key", k);
+			getReq.send();
+			</script>
 	</body>
 </html>
